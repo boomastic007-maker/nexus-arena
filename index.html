@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Nexus Arena Chat</title>
+</head>
+<body style="background:black;color:white;font-family:Arial;">
+
+<h1>Nexus Arena Chat</h1>
+
+<input type="text" id="username" placeholder="Your Name">
+<button onclick="login()">Login</button>
+<p id="userstatus"></p>
+
+<div id="chatbox" style="border:1px solid blue;height:300px;padding:10px;"></div>
+
+<br><br>
+
+<input type="text" id="msg" placeholder="Type message">
+<button onclick="sendMessage()">Send</button>
+
+<script>
+let currentUser = "";
+
+function login() {
+  currentUser = document.getElementById("username").value;
+
+  if(currentUser !== "") {
+    document.getElementById("userstatus").innerHTML =
+      "Logged in as: " + currentUser;
+  }
+}
+
+function sendMessage() {
+  let message = document.getElementById("msg").value;
+
+  if(message !== "") {
+    
+
+    saveMessage(message);
+
+    document.getElementById("msg").value = "";
+  }
+}
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCLN2eCOCAjZRhxsZ4WRFLCd7zrBzryYMI",
+  authDomain: "nexus-arena-a8ad4.firebaseapp.com",
+  databaseURL: "https://nexus-arena-a8ad4-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "nexus-arena-a8ad4",
+  storageBucket: "nexus-arena-a8ad4.firebasestorage.app",
+  messagingSenderId: "776235610161",
+  appId: "1:776235610161:web:d544f3d38bc86483202510"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+window.saveMessage = function(msg) {
+  push(ref(db, "messages"), {
+    user: currentUser,
+    text: msg,
+    time: Date.now()
+  });
+}
+  onChildAdded(ref(db, "messages"), (snapshot) => {
+  const data = snapshot.val();
+
+  document.getElementById("chatbox").innerHTML +=
+    "<p>👤 " + data.user + ": " + data.text + "</p>";
+});
+</script>
+
+</body>
+</html>
