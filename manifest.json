@@ -1,22 +1,16 @@
-
 {
   "name": "Nexus Arena",
   "short_name": "NexusArena",
-  "description": "Nexus Arena Chat - Connect and chat with others",
-  "start_url": "/nexus-arena/",
-  "scope": "/nexus-arena/",
+  "description": "Nexus Arena Online Chat and Battle Game",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#1e40af",
   "orientation": "portrait",
-  "lang": "en",
   "icons": [
     {
-      "src": "/nexus-arena/icon-192.png",
-      "sizes": "512×512",
-      "type": "image/png"
-  
-      "src": "/nexus-arena/icon-512.png",
+      "src": "icon.png",
       "sizes": "512x512",
       "type": "image/png"
     }
