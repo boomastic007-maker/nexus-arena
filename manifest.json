@@ -13,7 +13,7 @@
   "icons": [
     {
       "src": "/nexus-arena/icon-192.png",
-      "sizes": "192x192",
+      "sizes": "512×512",
       "type": "image/png"
   
       "src": "/nexus-arena/icon-512.png",
