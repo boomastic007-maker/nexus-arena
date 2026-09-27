@@ -45,7 +45,7 @@ function sendMessage() {
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCLN2eCOCAjZRhxsZ4WRFLCd7zrBzryYMI",
@@ -61,6 +61,21 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 window.saveMessage = function(msg) {
+  onValue(ref(db, "messages"), (snapshot) => {
+  let html = "";
+
+  snapshot.forEach((child) => {
+    const data = child.val();
+
+    html += "<p>👤 " +
+      (data.user || "User") +
+      ": " +
+      data.text +
+      "</p>";
+  });
+
+  document.getElementById("chatbox").innerHTML = html;
+});
   push(ref(db, "messages"), {
     user: currentUser,
     text: msg,
