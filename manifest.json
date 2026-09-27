@@ -10,7 +10,7 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "Nexus arena.png"
       "sizes": "512x512",
       "type": "image/png"
     }
