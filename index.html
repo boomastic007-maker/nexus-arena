@@ -92,6 +92,10 @@ window.saveMessage = function(msg) {
     "<p>👤 " + data.user + ": " + data.text + "</p>";
 });
 </script>
-
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js');
+}
+</script>
 </body>
 </html>
