@@ -1,6 +1,7 @@
 {
   "name": "Nexus Arena",
   "short_name": "NexusArena",
+  "id": "/nexus-arena/",
   "description": "Nexus Arena Online Chat and Battle Game",
   "start_url": "./",
   "scope": "./",
