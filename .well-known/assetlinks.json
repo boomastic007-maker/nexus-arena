@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.boomastic007_maker.twa",
+        "sha256_cert_fingerprints": ["FB:4D:FA:2C:89:58:5B:32:A0:BC:46:9D:94:CB:35:DB:50:98:F2:86:AD:90:31:FF:E5:54:A9:49:50:E7:C5:73"]
+      }
+    }]
