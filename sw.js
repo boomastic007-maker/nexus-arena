@@ -1,6 +1,22 @@
+const CACHE_NAME = "nexus-arena-v1";
+
 self.addEventListener("install", (event) => {
-  console.log("Service Worker Installed");
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll([
+        "./",
+        "./index.html",
+        "./manifest.json",
+        "./icon-512-2.png"
+      ]);
+    })
+  );
 });
 
 self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      return response || fetch(event.request);
+    })
+  );
 });
