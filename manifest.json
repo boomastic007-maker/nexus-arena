@@ -9,10 +9,11 @@
   "theme_color": "#1e40af",
   "orientation": "portrait",
   "icons": [
-    {
-      "src": "file_000000006f308211873883a9c8413ce7.png",
-      "sizes": "512x512",
-      "type": "image/png"
+  {
+    "src": "icon-512-2.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  
     }
   ]
 }
