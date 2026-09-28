@@ -18,7 +18,8 @@
 
 <br><br>
 
-<input type="text" id="msg" placeholder="Type message">
+<input type="text" id="targetUser" placeholder="Send To">
+<br><br>
 <button onclick="sendMessage()">Send</button>
 
 <script>
@@ -48,7 +49,7 @@ function sendMessage() {
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
+import { getDatabase, ref, push, onValue,onChildAdded } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCLN2eCOCAjZRhxsZ4WRFLCd7zrBzryYMI",
@@ -79,11 +80,12 @@ window.saveMessage = function(msg) {
 
   document.getElementById("chatbox").innerHTML = html;
 });
-  push(ref(db, "messages"), {
-    user: currentUser,
-    text: msg,
-    time: Date.now()
-  });
+  push(ref(db, "privateChats"), {
+  from: currentUser,
+  to: document.getElementById("targetUser").value,
+  text: msg,
+  time: Date.now()
+});
 }
   onChildAdded(ref(db, "messages"), (snapshot) => {
   const data = snapshot.val();
