@@ -71,11 +71,16 @@ window.saveMessage = function(msg) {
   snapshot.forEach((child) => {
     const data = child.val();
 
-    html += "<p>👤 " +
-      (data.user || "User") +
-      ": " +
-      data.text +
-      "</p>";
+    if (
+  data.from === currentUser ||
+  data.to === currentUser
+) {
+  html += "<p>💬 " +
+    data.from +
+    ": " +
+    data.text +
+    "</p>";
+}
   });
 
   document.getElementById("chatbox").innerHTML = html;
