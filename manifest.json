@@ -4,6 +4,7 @@
   "id": "/nexus-arena/",
   "description": "Nexus Arena Online Chat and Battle Game",
   "categories": ["games", "entertainment", "social"],
+  "prefer_related_applications": false,
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
