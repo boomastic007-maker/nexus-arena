@@ -3,6 +3,7 @@
   "short_name": "NexusArena",
   "id": "/nexus-arena/",
   "description": "Nexus Arena Online Chat and Battle Game",
+  "categories": ["games", "entertainment", "social"],
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
