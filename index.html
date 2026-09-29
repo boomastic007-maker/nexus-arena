@@ -1,5 +1,67 @@
 <!DOCTYPE html>
 <html>
+  .topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#0b1120;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid #2563eb;
+  box-shadow:0 0 20px rgba(37,99,235,.4);
+}
+
+.topbar h1{
+  margin:0;
+  font-size:25px;
+}
+
+.topbar p{
+  margin:5px 0 0;
+  color:#94a3b8;
+}
+
+.level{
+  background:#2563eb;
+  padding:10px 14px;
+  border-radius:12px;
+}
+
+.profile-card{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-top:15px;
+  padding:18px;
+  background:#111827;
+  border-radius:18px;
+  border:1px solid #1d4ed8;
+}
+
+.avatar{
+  font-size:40px;
+}
+
+.profile-card h2,
+.profile-card p{
+  margin:5px 0;
+}
+
+.game-menu{
+  display:grid;
+  gap:12px;
+  margin-top:18px;
+}
+
+.game-menu button{
+  width:100%;
+  padding:16px;
+  font-size:16px;
+  font-weight:bold;
+  background:#111827;
+  border:1px solid #2563eb;
+  box-shadow:0 0 12px rgba(37,99,235,.3);
+}
   <style>
 body{
   background:#050816;
@@ -47,12 +109,29 @@ button{
 <meta name="theme-color" content="#1e40af">
 <link rel="manifest" href="manifest.json">
 </head>
-<body style="background:black;color:white;font-family:Arial;">
+<body>
 
-<h1>Nexus Arena Chat</h1>
-<div style="background:#111827;padding:15px;border-radius:15px;margin-bottom:10px;">
-  <h2>🎮 Nexus Arena</h2>
-  <p>Level 1 | Coins: 100</p>
+<div class="topbar">
+  <div>
+    <h1>⚡ NEXUS ARENA</h1>
+    <p>ENTER THE BATTLE</p>
+  </div>
+  <div class="level">LV 1</div>
+</div>
+
+<div class="profile-card">
+  <div class="avatar">👤</div>
+  <div>
+    <h2>Player</h2>
+    <p>🪙 Coins: 100</p>
+  </div>
+</div>
+
+<div class="game-menu">
+  <button>🎮 PLAY GAME</button>
+  <button>💬 GLOBAL CHAT</button>
+  <button>🔒 PRIVATE CHAT</button>
+  <button>🏆 LEADERBOARD</button>
 </div>
 <input type="text" id="username" placeholder="Your Name">
 <button onclick="login()">Login</button>
